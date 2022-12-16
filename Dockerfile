@@ -3,7 +3,7 @@
 FROM openjdk:11
 
 # Copy the jar we built of our application, and put it on our image so we can run it
-COPY target/MiniProjectBackend-0.0.1-SNAPSHOT.jar miniproject.jar
+COPY MiniProjectBackend-0.0.1-SNAPSHOT.jar miniproject.jar
 
 # Run the jar on the image
 CMD ["java", "-jar", "/miniproject.jar"]
