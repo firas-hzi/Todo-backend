@@ -34,11 +34,11 @@ private ListRepository listRepository;
 		return itemRepository.findAllByList(list);
 	}
 
-	public Integer removeItem(Integer itemId) {
+	public void removeItem(Integer itemId) {
 		
 		Item item =itemRepository.findById(itemId).get();
-		itemRepository.delete(item);
-		return null;
+		  itemRepository.delete(item);
+		
 	}
 
 }
