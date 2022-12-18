@@ -2,6 +2,7 @@ package com.example.models;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "List")
-public class List {
+public class Lists {
 	
 	@Id
 	@GeneratedValue
@@ -29,10 +30,10 @@ public class List {
 	
 	private String description;
 	
-	private LocalDateTime date;
+	private LocalDateTime createDate;
 	
 	@ManyToOne(fetch= FetchType.LAZY)
 	@JoinColumn(name="personId")
-	private int personId;
+	private Person person;
 
 }
