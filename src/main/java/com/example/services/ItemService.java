@@ -21,8 +21,13 @@ public class ItemService {
 private ItemRepository itemRepository;
 private ListRepository listRepository;	
 
-	public Item createItem(Item item) {
-		System.out.println("dadsafaf "+item.toString());
+	public Item createItem(String name, String description, Double price, Integer listId) {
+		Lists list = listRepository.findById(listId).get();
+		Item item = new Item();
+		item.setDescription(description);
+		item.setName(name);
+		item.setPrice(price);
+		item.setList(list);
 		return itemRepository.save(item);
 	}
 

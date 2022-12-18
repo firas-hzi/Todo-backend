@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,9 @@ public class ItemController {
 	private ItemService itemService;
 	
 	@PostMapping("/")
-	public Item createList(@RequestBody Item item) {
-		return itemService.createItem(item);
+	public Item createList(@RequestBody LinkedHashMap<String, String> body) {
+		
+		return itemService.createItem(body.get("name"), body.get("description"), Double.parseDouble(body.get("price")), Integer.parseInt(body.get("listId")));
 	}
 	
 	@GetMapping("/{listId}")
