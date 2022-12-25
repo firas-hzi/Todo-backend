@@ -56,6 +56,9 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+    	
+  
+    	
         httpSecurity
             .csrf().disable()
             .exceptionHandling().authenticationEntryPoint(jwtUnAuthorizedResponseAuthenticationEntryPoint).and()
@@ -71,12 +74,20 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
             .frameOptions().sameOrigin()  //H2 Console Needs this setting
             .cacheControl(); //disable caching
     }
+	  final String[] AUTH_WHITELIST = {
+			  "/persons/register",
+	            // -- swagger ui
+	            "/v2/api-docs",
+	            "/v3/api-docs",  
+	            "/swagger-resources/**", 
+	            "/swagger-ui/**",
+	             };
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
         webSecurity
             .ignoring()
-            .antMatchers("/persons/register")
+            .antMatchers(AUTH_WHITELIST)
             .antMatchers(
                 HttpMethod.POST,
                 authenticationPath
