@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/persons")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 public class PersonController {
 	

@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/lists")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 public class ListController {
 	

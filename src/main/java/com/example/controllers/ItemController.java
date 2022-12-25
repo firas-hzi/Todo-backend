@@ -20,7 +20,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/items")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 public class ItemController {
 	
@@ -34,6 +34,7 @@ public class ItemController {
 	
 	@GetMapping("/{listId}")
 	public List<Item> getAllItems(@PathVariable Integer listId){
+		System.out.println("list id sssssssssss "+listId);
 	return itemService.getAllItems(listId);
 	}
 	
