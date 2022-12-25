@@ -76,11 +76,14 @@ public class JWTWebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity webSecurity) throws Exception {
         webSecurity
             .ignoring()
+            .antMatchers("/persons/register")
             .antMatchers(
                 HttpMethod.POST,
                 authenticationPath
             )
+           
             .antMatchers(HttpMethod.OPTIONS, "/**")
+            
             .and()
             .ignoring()
             .antMatchers(
